@@ -79,3 +79,16 @@ fun FormBiodata(onProceed: () -> Unit) {
         topEnd = dimensionResource(R.dimen.form_radius)
     )
 
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(
+                elevation = dimensionResource(R.dimen.form_elevation),
+                shape = bentukForm
+            )
+            .background(
+                color = colorResource(R.color.form_background),
+                shape = bentukForm
+            )
+            .padding(dimensionResource(R.dimen.form_padding))
+    ) }
