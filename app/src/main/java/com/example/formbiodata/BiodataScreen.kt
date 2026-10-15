@@ -86,3 +86,11 @@ fun BiodataScreen() {
             )
         }
 
+        // Diletakkan terakhir supaya tampil di atas form.
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .imePadding()
+                .padding(dimensionResource(R.dimen.snackbar_padding))
+        )
