@@ -11,5 +11,21 @@
     <string name="birth_date">Tgl Lahir</string>
     <string name="experience">Experience</string>
 
+    <string name="choose_skills">Pilih Skill Anda :</string>
+    <string name="skill_android">Android</string>
+    <string name="skill_uiux">UI/UX</string>
+    <string name="skill_web">Web</string>
 
+    <string name="proceed">Proceed</string>
+    <string name="submit_success">Biodata berhasil diisi</string>
+
+    <string name="banner_description">Banner laba-laba ungu</string>
+    <string name="choose_date">Pilih tanggal lahir</string>
+    <string name="choose_experience">Pilih pengalaman</string>
+
+    <string-array name="experience_options">
+        <item>Pemula</item>
+        <item>Menengah</item>
+        <item>Mahir</item>
+    </string-array>
 </resources>
