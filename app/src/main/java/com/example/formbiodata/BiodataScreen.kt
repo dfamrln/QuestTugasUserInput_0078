@@ -93,4 +93,15 @@ fun BiodataScreen() {
                 .align(Alignment.BottomCenter)
                 .imePadding()
                 .padding(dimensionResource(R.dimen.snackbar_padding))
-        )
+        ) { data ->
+            Snackbar(
+                snackbarData = data,
+                containerColor = colorResource(
+                    R.color.snackbar_background
+                ),
+                contentColor = colorResource(R.color.snackbar_text)
+            )
+        }
+    }
+}
+
