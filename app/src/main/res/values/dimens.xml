@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="banner_height">260dp</dimen>
+    <dimen name="form_top">220dp</dimen>
+    <dimen name="form_radius">28dp</dimen>
+    <dimen name="form_elevation">10dp</dimen>
+    <dimen name="form_padding">24dp</dimen>
+
+    <dimen name="field_spacing">16dp</dimen>
+    <dimen name="title_spacing">4dp</dimen>
+    <dimen name="column_spacing">8dp</dimen>
+
+    <dimen name="field_radius">16dp</dimen>
+    <dimen name="field_height">56dp</dimen>
+    <dimen name="dropdown_padding">12dp</dimen>
+    <dimen name="border_width">1dp</dimen>
+
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+
+    <dimen name="snackbar_padding">16dp</dimen>
+    <dimen name="screen_bottom_padding">24dp</dimen>
+</resources>
