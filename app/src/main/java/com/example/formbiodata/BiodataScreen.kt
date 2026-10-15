@@ -42,4 +42,8 @@ fun BiodataScreen() {
             .fillMaxSize()
             .background(colorResource(R.color.screen_background))
             .safeDrawingPadding()
-    ) }
+    ) {
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            containerColor = colorResource(R.color.screen_background)
+        )
