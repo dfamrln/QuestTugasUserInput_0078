@@ -37,3 +37,9 @@ fun BiodataScreen() {
     val keyboardController = LocalSoftwareKeyboardController.current
     val pesanBerhasil = stringResource(R.string.submit_success)
 
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(R.color.screen_background))
+            .safeDrawingPadding()
+    ) }
