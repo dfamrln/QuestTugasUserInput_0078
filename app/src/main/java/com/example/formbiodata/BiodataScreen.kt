@@ -105,3 +105,10 @@ fun BiodataScreen() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun BiodataScreenPreview() {
+    androidx.compose.material3.MaterialTheme {
+        BiodataScreen()
+    }
+}
