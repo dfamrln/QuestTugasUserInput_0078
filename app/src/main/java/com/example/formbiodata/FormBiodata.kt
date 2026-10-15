@@ -91,4 +91,29 @@ fun FormBiodata(onProceed: () -> Unit) {
                 shape = bentukForm
             )
             .padding(dimensionResource(R.dimen.form_padding))
-    ) }
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(
+                dimensionResource(R.dimen.field_spacing)
+            )
+        ) {
+            Text(
+                text = stringResource(R.string.form_title),
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(R.color.form_primary)
+            )
+
+            Text(
+                text = stringResource(R.string.form_subtitle),
+                style = MaterialTheme.typography.bodySmall,
+                color = colorResource(R.color.form_muted)
+            )
+
+            Spacer(
+                modifier = Modifier.height(
+                    dimensionResource(R.dimen.title_spacing)
+                )
+            )
+
