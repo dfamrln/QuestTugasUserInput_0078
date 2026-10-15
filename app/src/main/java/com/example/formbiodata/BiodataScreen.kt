@@ -46,4 +46,17 @@ fun BiodataScreen() {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             containerColor = colorResource(R.color.screen_background)
-        )
+        ) { innerPadding ->
+            Image(
+                painter = painterResource(R.drawable.banner_biodata),
+                contentDescription = stringResource(
+                    R.string.banner_description
+                ),
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxWidth()
+                    .height(dimensionResource(R.dimen.banner_height))
+            )
+        }
+
