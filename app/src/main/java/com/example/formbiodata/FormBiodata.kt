@@ -45,4 +45,37 @@ import androidx.compose.ui.text.input.KeyboardType
 import java.text.DateFormat
 import java.util.Calendar
 
-}
+@Composable
+fun FormBiodata(onProceed: () -> Unit) {
+    val context = LocalContext.current
+
+    var namaDepan by rememberSaveable { mutableStateOf("") }
+    var namaBelakang by rememberSaveable { mutableStateOf("") }
+    var email by rememberSaveable { mutableStateOf("") }
+    var tanggalLahir by rememberSaveable { mutableStateOf("") }
+    var pengalaman by rememberSaveable { mutableStateOf("") }
+
+    var skillAndroid by rememberSaveable { mutableStateOf(false) }
+    var skillUiux by rememberSaveable { mutableStateOf(false) }
+    var skillWeb by rememberSaveable { mutableStateOf(false) }
+
+    var menuTerbuka by remember { mutableStateOf(false) }
+
+    val daftarPengalaman = stringArrayResource(
+        R.array.experience_options
+    )
+    val placeholderPengalaman = stringResource(R.string.experience)
+
+    val formValid =
+        namaDepan.isNotBlank() &&
+                namaBelakang.isNotBlank() &&
+                email.isNotBlank() &&
+                tanggalLahir.isNotBlank() &&
+                pengalaman.isNotBlank() &&
+                (skillAndroid || skillUiux || skillWeb)
+
+    val bentukForm = RoundedCornerShape(
+        topStart = dimensionResource(R.dimen.form_radius),
+        topEnd = dimensionResource(R.dimen.form_radius)
+    )
+
