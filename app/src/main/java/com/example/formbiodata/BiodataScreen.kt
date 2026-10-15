@@ -69,4 +69,20 @@ fun BiodataScreen() {
                 .padding(
                     bottom = dimensionResource(R.dimen.screen_bottom_padding)
                 )
-        )
+        ) {
+            FormBiodata(
+                onProceed = {
+                    keyboardController?.hide()
+
+                    scope.launch {
+                        snackbarHostState.currentSnackbarData?.dismiss()
+
+                        snackbarHostState.showSnackbar(
+                            message = pesanBerhasil,
+                            duration = SnackbarDuration.Short
+                        )
+                    }
+                }
+            )
+        }
+
