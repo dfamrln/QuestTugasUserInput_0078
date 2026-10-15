@@ -117,3 +117,25 @@ fun FormBiodata(onProceed: () -> Unit) {
                 )
             )
 
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(
+                    dimensionResource(R.dimen.column_spacing)
+                )
+            ) {
+                BiodataTextField(
+                    value = namaDepan,
+                    onValueChange = { namaDepan = it },
+                    placeholder = stringResource(R.string.first_name),
+                    modifier = Modifier.weight(1f)
+                )
+
+                BiodataTextField(
+                    value = namaBelakang,
+                    onValueChange = { namaBelakang = it },
+                    placeholder = stringResource(R.string.last_name),
+                    modifier = Modifier.weight(1f)
+                )
+            }
+
+            }
