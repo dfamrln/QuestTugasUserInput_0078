@@ -138,4 +138,226 @@ fun FormBiodata(onProceed: () -> Unit) {
                 )
             }
 
+            BiodataTextField(
+                value = email,
+                onValueChange = { email = it },
+                placeholder = stringResource(R.string.email),
+                modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Email
+                )
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(
+                    dimensionResource(R.dimen.column_spacing)
+                )
+            ) {
+                OutlinedTextField(
+                    value = tanggalLahir,
+                    onValueChange = {},
+                    readOnly = true,
+                    singleLine = true,
+                    placeholder = {
+                        Text(
+                            text = stringResource(R.string.birth_date),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    },
+                    trailingIcon = {
+                        IconButton(
+                            onClick = {
+                                val kalender = Calendar.getInstance()
+
+                                DatePickerDialog(
+                                    context,
+                                    { _, tahun, bulan, hari ->
+                                        kalender.set(tahun, bulan, hari)
+
+                                        tanggalLahir = DateFormat
+                                            .getDateInstance(
+                                                DateFormat.SHORT
+                                            )
+                                            .format(kalender.time)
+                                    },
+                                    kalender.get(Calendar.YEAR),
+                                    kalender.get(Calendar.MONTH),
+                                    kalender.get(Calendar.DAY_OF_MONTH)
+                                ).apply {
+                                    datePicker.maxDate =
+                                        System.currentTimeMillis()
+                                }.show()
+                            }
+                        ) {
+                            Icon(
+                                painter = painterResource(
+                                    R.drawable.ic_calendar
+                                ),
+                                contentDescription = stringResource(
+                                    R.string.choose_date
+                                ),
+                                tint = colorResource(R.color.form_text),
+                                modifier = Modifier.size(
+                                    dimensionResource(R.dimen.icon_size)
+                                )
+                            )
+                        }
+                    },
+                    textStyle = MaterialTheme.typography.bodyMedium,
+                    shape = RoundedCornerShape(
+                        dimensionResource(R.dimen.field_radius)
+                    ),
+                    colors = biodataFieldColors(),
+                    modifier = Modifier.weight(1f)
+                )
+
+                Box(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    OutlinedButton(
+                        onClick = {
+                            menuTerbuka = true
+                        },
+                        shape = RoundedCornerShape(
+                            dimensionResource(R.dimen.field_radius)
+                        ),
+                        border = BorderStroke(
+                            width = dimensionResource(
+                                R.dimen.border_width
+                            ),
+                            color = colorResource(R.color.field_border)
+                        ),
+                        contentPadding = PaddingValues(
+                            horizontal = dimensionResource(
+                                R.dimen.dropdown_padding
+                            )
+                        ),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(
+                                dimensionResource(R.dimen.field_height)
+                            )
+                    ) {
+                        Text(
+                            text = pengalaman.ifEmpty {
+                                placeholderPengalaman
+                            },
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = colorResource(R.color.form_text),
+                            modifier = Modifier.weight(1f)
+                        )
+
+                        Icon(
+                            painter = painterResource(
+                                R.drawable.ic_dropdown
+                            ),
+                            contentDescription = stringResource(
+                                R.string.choose_experience
+                            ),
+                            tint = colorResource(R.color.form_text),
+                            modifier = Modifier.size(
+                                dimensionResource(R.dimen.icon_size)
+                            )
+                        )
+                    }
+
+                    DropdownMenu(
+                        expanded = menuTerbuka,
+                        onDismissRequest = {
+                            menuTerbuka = false
+                        },
+                        containerColor = colorResource(
+                            R.color.form_background
+                        )
+                    ) {
+                        daftarPengalaman.forEach { pilihan ->
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = pilihan,
+                                        color = colorResource(
+                                            R.color.form_text
+                                        )
+                                    )
+                                },
+                                onClick = {
+                                    pengalaman = pilihan
+                                    menuTerbuka = false
+                                }
+                            )
+                        }
+                    }
+                }
             }
+
+            Text(
+                text = stringResource(R.string.choose_skills),
+                fontWeight = FontWeight.Bold,
+                color = colorResource(R.color.form_text),
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                SkillCheckbox(
+                    label = stringResource(R.string.skill_android),
+                    checked = skillAndroid,
+                    onCheckedChange = {
+                        skillAndroid = it
+                    }
+                )
+
+                SkillCheckbox(
+                    label = stringResource(R.string.skill_uiux),
+                    checked = skillUiux,
+                    onCheckedChange = {
+                        skillUiux = it
+                    }
+                )
+
+                SkillCheckbox(
+                    label = stringResource(R.string.skill_web),
+                    checked = skillWeb,
+                    onCheckedChange = {
+                        skillWeb = it
+                    }
+                )
+            }
+
+            Button(
+                onClick = onProceed,
+                enabled = formValid,
+                shape = RoundedCornerShape(
+                    dimensionResource(R.dimen.field_radius)
+                ),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(
+                        R.color.form_primary
+                    ),
+                    contentColor = colorResource(
+                        R.color.form_background
+                    ),
+                    disabledContainerColor = colorResource(
+                        R.color.button_disabled
+                    ),
+                    disabledContentColor = colorResource(
+                        R.color.form_background
+                    )
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(
+                        dimensionResource(R.dimen.button_height)
+                    )
+            ) {
+                Text(
+                    text = stringResource(R.string.proceed),
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+    }
+}
