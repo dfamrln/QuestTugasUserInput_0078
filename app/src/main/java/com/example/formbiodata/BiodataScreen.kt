@@ -60,3 +60,13 @@ fun BiodataScreen() {
             )
         }
 
+        // Form berada di atas Scaffold dan menutupi sebagian banner.
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(top = dimensionResource(R.dimen.form_top))
+                .padding(
+                    bottom = dimensionResource(R.dimen.screen_bottom_padding)
+                )
+        )
