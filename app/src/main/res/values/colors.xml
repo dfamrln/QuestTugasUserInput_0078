@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="screen_background">#FAF7FF</color>
+    <color name="form_background">#FFFFFF</color>
+    <color name="form_primary">#713CC2</color>
+    <color name="form_text">#51515C</color>
+    <color name="form_muted">#909090</color>
+    <color name="field_border">#85858F</color>
+    <color name="button_disabled">#E2E2E5</color>
+
+    <color name="snackbar_background">#212121</color>
+    <color name="snackbar_text">#FFFFFF</color>
+
+    <color name="banner_background">#160D24</color>
+    <color name="banner_grid">#51246F</color>
+    <color name="banner_spider">#DD55FF</color>
 </resources>
